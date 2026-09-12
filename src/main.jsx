@@ -1,5 +1,9 @@
 import { createRoot } from 'react-dom/client'
 import HeaderHome from './components/HeaderHome'
+import HomePage from './pages/HomePage'
+import DataBinding from './pages/DataBinding'
+import HandleEvent from './pages/HandleEvent'
+import RenderCondition from './pages/RenderCondition'
 
 //? jsx : chứa các code tạo nên các đối tương component(các thành phần UI)  trong reactjs
 //? complier : chuyển đổi các code jsx sang các code js & html thuần 
@@ -8,9 +12,15 @@ import HeaderHome from './components/HeaderHome'
 createRoot(document.getElementById('root')).render(
   <>
     {/* <h1>Render reactjs</h1>
-    <HeaderHome />
-   */}
-   
+    <HeaderHome /> */}
+    {/* <HomePage /> */}
+      {/* <DataBinding /> */}
+
+      {/* <HandleEvent /> */}
+
+      <RenderCondition />
+
+
   </>
 
 )
