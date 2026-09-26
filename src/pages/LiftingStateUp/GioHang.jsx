@@ -1,7 +1,7 @@
 import React from "react";
 
 const GioHang = (props) => {
-  const { gioHang, xoaGioHang } = props;
+  const { gioHang, xoaGioHang, tangGiamSL } = props;
 
   const renderGioHang = () => {
     const render = gioHang.map((item) => {
@@ -11,8 +11,12 @@ const GioHang = (props) => {
           <th>{item.tenSP}</th>
           <th>{item.giaBan.toLocaleString()} VND</th>
           <th>
-            <button className="btn btn-primary">-</button> {item.soLuong}{" "}
-            <button className="btn btn-primary">+</button>
+            <button onClick={() => { 
+              tangGiamSL(item.maSP, -1)
+             }} className="btn btn-primary">-</button> {item.soLuong}{" "}
+            <button onClick={() => {
+              tangGiamSL(item.maSP, 1)
+            }} className="btn btn-primary">+</button>
           </th>
           <th>{(item.giaBan * item.soLuong).toLocaleString()} VND</th>
           <th>

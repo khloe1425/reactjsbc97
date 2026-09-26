@@ -58,7 +58,17 @@ const DanhSachSanPham = () => {
   let [gioHang, setGioHang] = useState([]);
   //state nằm ở đâu, hàm xử lý setState nằm ở component đó
   const themGioHang = (spClick) => {
-    //tạo ra 1 sp mới có trường số lượng
+    //? tạo ra 1 đối tượng sp mới có thêm thuộc tính số lượng (đối tượng riêng của Giỏ hàng) => copy từng thuộc tính từ object cũ sang object mới
+    //! const spThem = spClick => bị tham chiếu (chung ô nhớ) => cơ chế setState của react sẽ nhận diện là chưa đổi giá trị => không render lại UI
+
+    // const spThem = {
+    //   maSP: spClick.maSP,
+    //   tenSP: spClick.tenSP,
+    //   // tạo tượng tự với các thuộc tính còn lại
+    //   //thuộc tính mới chỉ có sản phẩm của giỏ hàng mới có
+    //   soLuong: 1
+    // }
+    //? Spread Operator
     const spThem = { ...spClick, soLuong: 1 };
     //khi click vào themgiohang -> xử lý 2 trường hợp
     //1. sảm phẩm đã có trong giỏ hàng
@@ -78,11 +88,49 @@ const DanhSachSanPham = () => {
     // setGioHang(newGioHang);
   };
 
-  const xoaGioHang = (maSP) => {
-    let gioHangUpdate = [...gioHang.filter((item) => item.maSP !== maSP)];
+  const xoaGioHang = (maSPXoa) => {
+    //? splice => cú pháp dài
+    //? filter [sp1 001,sp2 002,sp3 003] => xóa sp1 001=> [sp2 002,sp3 003]
+    //? => lọc ra các sản phầm cần giữ lại trong giỏ hàng => maSP !== mã cần xóa
+    // let gioHangUpdate = [...gioHang]
+    // gioHangUpdate = gioHangUpdate.filter((item) => {
+    //   return item.maSP !== maSPXoa
+    // })
+    // let gioHangUpdate = [...gioHang.filter((item) => item.maSP !== maSPXoa)];
+
+    //? hàm filter() khi return sẽ trả về 1 mảng mới với địa chỉ ô nhớ mới => có thể không cần copy mảng
+    let gioHangUpdate = gioHang.filter((item) => item.maSP !== maSPXoa);
 
     setGioHang(gioHangUpdate);
+
   };
+
+  // hàm xử lý tăng giảm số lượng của giỏ hàng => đặt ở component nào ?
+  // input: mã sản phẩm cần đổi số lượng, số lượng (+1, -1)
+  const tangGiamSL = (maSPTangGiam,soLuong ) => { 
+    console.log(maSPTangGiam, soLuong)
+    //? B1: copy mảng giỏ hàng 
+    let gioHangUpdate = [...gioHang]
+    //? B2 : tìm sản phẩm cần cập nhật trong giỏ hàng
+    // find() => duyệt mảng và so sánh từng phần tử của mảng với đk tìm kiếm => tìn được phần tử thỏa đk => trả về phần tử tìm đc
+    let spTangGiam = gioHangUpdate.find(spGioHang => spGioHang.maSP == maSPTangGiam)
+    if (spTangGiam){
+      // tìm thấy => thay đổi số lượng
+      //? B3:  tăng : spTangGiam.soLuong += 1 ;  giảm: spTangGiam.soLuong += (-1)
+      spTangGiam.soLuong += soLuong
+
+      if (spTangGiam.soLuong <1 ){
+        alert("số lượng không được dưới 1")
+        spTangGiam.soLuong = 1
+      }
+      //? B4: truyền giỏ hàng đã thay đổi số lượng vào setState => react cập nhật giá trị đổi và render lại UI
+      setGioHang(gioHangUpdate);
+
+    }
+
+   }
+
+
 
   const renderSanPham = () => {
     const sanPham = data.map((item) => {
@@ -103,7 +151,7 @@ const DanhSachSanPham = () => {
     <div className="container">
       <h3 className="text-center">Danh sách sản phẩm</h3>
       <div className="row">{renderSanPham()}</div>
-      <GioHang gioHang={gioHang} xoaGioHang={xoaGioHang} />
+      <GioHang gioHang={gioHang} xoaGioHang={xoaGioHang} tangGiamSL={tangGiamSL}  />
       <SanPhamChiTiet sanPham={sanPham} />
     </div>
   );
