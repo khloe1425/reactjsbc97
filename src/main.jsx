@@ -15,6 +15,7 @@ import RenderWithMap from "./pages/PropsDemo/RenderWithMap";
 import BTRender from "./pages/PropsDemo/BTRender/BTRender";
 import DanhSachSanPham from "./pages/LiftingStateUp/DanhSachSanPham";
 import GetAllProduct from "./pages/DemoAPI/GetAllProduct";
+import ReactFormDemo from "./pages/FormDemo/ReactFormDemo";
 
 //? jsx : chứa các code tạo nên các đối tương component(các thành phần UI)  trong reactjs
 //? complier : chuyển đổi các code jsx sang các code js & html thuần
@@ -22,7 +23,8 @@ import GetAllProduct from "./pages/DemoAPI/GetAllProduct";
 //? lệnh build npm run build : build code reactjs sang code js & html thuần để deploy lên server => đóng gói code (bundle) reactjs thành các file js & html thuần để deploy lên server (một file js, một file html, một file css, ...)
 createRoot(document.getElementById("root")).render(
   <>
-   <GetAllProduct/>
+    {/* <GetAllProduct/> */}
+    <ReactFormDemo />
   </>,
 );
 

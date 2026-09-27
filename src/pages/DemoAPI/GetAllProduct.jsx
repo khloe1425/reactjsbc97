@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
 const GetAllProduct = () => {
 
@@ -29,17 +30,72 @@ const GetAllProduct = () => {
         }
     ])
 
+    //JS thuần: window.onload => gọi hàm bình thường ko đặt vào event (click, keypress)
+    //Reactjs => vòng đời (lifecycle) của function component: mount, update, unmount
+    /**
+     * mount: Khởi tạo component 
+     * update: khi dữ liệu state hoặc props thay đổi
+     * unmount: rời khỏi component
+     * 
+     * //vào website => call API => load liền ds sản phẩm
+     * API : sau khi tạo component => call API thành công => báo cho component biết để render lại UI
+     * hook: useEffect (4 trường hợp sử dụng)
+     * + useEffect(code cần xử lý, mảng tham số - dependency )
+     *  1. dependency mảng rỗng: useEffect({code xử lý}, [])
+     * 2. dependency có giá trị: useEffect({code xử lý}, [giá trị 1, giá trị 2])
+     * 3. cleanup 
+     * 4. không khai báo tham số dependency => ít dùng
+     */
+    //? càn xử lý call api và load lại UI tự động => gần giống onload
+    const getAllProductAPI = () => {
+        // chaining function
+        axios({
+            method: 'get',
+            url: 'https://apistore.cybersoft.edu.vn/api/Product'
+        }).then((result) => {
+            //call API => dữ liệu mới => set vào state
+            console.log(result.data.content)
+            setArrProduct(result.data.content)
+
+        }).catch((error) => {
+            console.log(error)
+        })
+
+    }
+    // useEffect(() => { 
+    //!     //TH 4: khi component được khởi tạo/ render lại thì code bên trong chạy lại
+    //     getAllProductAPI();
+    //  })
+
+    useEffect(() => { 
+        //chỉ chạy 1 lần duy nhất khi component được khởi tạo (mount)
+        getAllProductAPI();
+     }, [])
+     
 
 
 
 
+
+
+
+    
+
+     
+     
+
+     
+     
 
 
     return (
         <div className='container'>
             <h2>Get all product</h2>
-            <button className='btn btn-success'>Load Sản phẩm</button>
-            <div className="row">
+            <button className='btn btn-success' onClick={() => { 
+                getAllProductAPI()
+             }}>Load Sản phẩm</button>
+
+            <div className="row mt-3">
                 {
                     arrProduct.map((product) => { 
                         return <div className="col-3" key={product.id}>
