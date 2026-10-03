@@ -98,15 +98,15 @@ const ReactFormDemo = () => {
     // console.log("khi submit", accountUser) // giá trị nhập từ form sau khi user click button
     let isValid = true;
 
-    //!nếu user không kích hoạt sự kiện onInput / onChange
+    //!nếu user không kích hoạt sự kiện onInput / onChange mà nhấn submit
     for (let key in accountUser) {
       if (accountUser[key].trim() === '') {
         isValid = false;
         return;
       }
     }
+    
     //!Chỉ gửi dữ liệu khi tất cả data đều hợp lệ => kiểm tra errorAccount   
-
     for (let key in errorAccount) {
       if (errorAccount[key] !== '') {
         //nếu có một thuộc tính đang chứa nội dung thông báo lỗi

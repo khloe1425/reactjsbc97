@@ -16,6 +16,7 @@ import BTRender from "./pages/PropsDemo/BTRender/BTRender";
 import DanhSachSanPham from "./pages/LiftingStateUp/DanhSachSanPham";
 import GetAllProduct from "./pages/DemoAPI/GetAllProduct";
 import ReactFormDemo from "./pages/FormDemo/ReactFormDemo";
+import DemoFormikYup from "./pages/FormDemo/DemoFormikYup";
 
 //? jsx : chứa các code tạo nên các đối tương component(các thành phần UI)  trong reactjs
 //? complier : chuyển đổi các code jsx sang các code js & html thuần
@@ -24,7 +25,8 @@ import ReactFormDemo from "./pages/FormDemo/ReactFormDemo";
 createRoot(document.getElementById("root")).render(
   <>
     {/* <GetAllProduct/> */}
-    <ReactFormDemo />
+    {/* <ReactFormDemo /> */}
+    <DemoFormikYup />
   </>,
 );
 
