@@ -1,36 +1,52 @@
 import { createRoot } from "react-dom/client";
-import HeaderHome from "./components/HeaderHome";
-import HomePage from "./pages/HomePage";
-import DataBinding from "./pages/DataBinding";
-import HandleEvent from "./pages/HandleEvent";
-import RenderCondition from "./pages/RenderCondition";
-import ChangeNumber from "./pages/StateDemo/ChangeNumber";
-import ChangeFontSize from "./pages/StateDemo/ChangeFontSize";
-import StyleComponentDemo from "./pages/StyleComponent/StyleComponentDemo";
 //css dùng cho cả dự án
 import "./assets/css/main.css";
-import CarDemo from "./pages/StateDemo/CarDemo";
-import PropsDemo from "./pages/PropsDemo/PropsDemo";
-import RenderWithMap from "./pages/PropsDemo/RenderWithMap";
-import BTRender from "./pages/PropsDemo/BTRender/BTRender";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 import DanhSachSanPham from "./pages/LiftingStateUp/DanhSachSanPham";
-import GetAllProduct from "./pages/DemoAPI/GetAllProduct";
-import ReactFormDemo from "./pages/FormDemo/ReactFormDemo";
-import DemoFormikYup from "./pages/FormDemo/DemoFormikYup";
+import HeaderHomeRoutes from "./components/HeaderHomeRoutes";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AdminTemplate from "./templates/AdminTemplate";
+import Dashboard from "./pages/AdminPages/Dashboard";
+import ProductManagement from "./pages/AdminPages/ProductManagement";
+import HomeTemplate from "./templates/HomeTemplate";
+import Profile from "./pages/Profile";
+import ForgotPass from "./pages/ForgotPass";
 
-//? jsx : chứa các code tạo nên các đối tương component(các thành phần UI)  trong reactjs
-//? complier : chuyển đổi các code jsx sang các code js & html thuần
-//? lệnh chạy npm run dev : chạy ứng dụng reactjs (biên dịch code , chạy localhost)
-//? lệnh build npm run build : build code reactjs sang code js & html thuần để deploy lên server => đóng gói code (bundle) reactjs thành các file js & html thuần để deploy lên server (một file js, một file html, một file css, ...)
 createRoot(document.getElementById("root")).render(
-  <>
-    {/* <GetAllProduct/> */}
-    {/* <ReactFormDemo /> */}
-    <DemoFormikYup />
-  </>,
+
+  <BrowserRouter>
+    {/* Thêm header dùng chung cho tất cả các trang */}
+    {/* <HeaderHomeRoutes /> */}
+    {/*Routes: Nhóm các trang liên quan, dùng chung 1 template */}
+    <Routes>
+      <Route path="" element={<HomeTemplate />}>
+        <Route index element={<HomePage />} />
+        <Route path="index" element={<HomePage />} />
+        <Route path="danh-sach-san-pham" element={<DanhSachSanPham />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="about" element={<About />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="forgot-password" element={<ForgotPass />} />
+      </Route>
+    </Routes>
+
+    {/* admin/dashboard */}
+    <Routes>
+      <Route path="admin" element={<AdminTemplate />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="product-management" element={<ProductManagement />} />
+      </Route>
+
+    </Routes>
+
+
+  </BrowserRouter>
 );
 
-//render(đối số): truyền 1 đối tương
-// bọc trong 1 thẻ cha (div), thẻ fragment (<> </>)
-// tạo hàm (tham số): parameter
-// gọi hàm (giá trị truyền vào là đối số) argument
+
