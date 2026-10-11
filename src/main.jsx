@@ -15,6 +15,8 @@ import ProductManagement from "./pages/AdminPages/ProductManagement";
 import HomeTemplate from "./templates/HomeTemplate";
 import Profile from "./pages/Profile";
 import ForgotPass from "./pages/ForgotPass";
+import Detail from "./pages/Detail";
+import GetAllProduct from "./pages/DemoAPI/GetAllProduct";
 
 createRoot(document.getElementById("root")).render(
 
@@ -22,6 +24,7 @@ createRoot(document.getElementById("root")).render(
     {/* Thêm header dùng chung cho tất cả các trang */}
     {/* <HeaderHomeRoutes /> */}
     {/*Routes: Nhóm các trang liên quan, dùng chung 1 template */}
+    {/* url?tenThamSo=value; url/:tenThamSo => user thấy: url/giá trị tham số*/}
     <Routes>
       <Route path="" element={<HomeTemplate />}>
         <Route index element={<HomePage />} />
@@ -33,6 +36,9 @@ createRoot(document.getElementById("root")).render(
         <Route path="register" element={<Register />} />
         <Route path="profile" element={<Profile />} />
         <Route path="forgot-password" element={<ForgotPass />} />
+        <Route path="detail/:id" element={<Detail />} />
+        <Route path="get-all-product" element={<GetAllProduct />} />
+       
       </Route>
     </Routes>
 
