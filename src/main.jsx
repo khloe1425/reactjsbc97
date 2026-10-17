@@ -17,6 +17,8 @@ import Profile from "./pages/Profile";
 import ForgotPass from "./pages/ForgotPass";
 import Detail from "./pages/Detail";
 import GetAllProduct from "./pages/DemoAPI/GetAllProduct";
+import CreateProduct from "./pages/AdminPages/CreateProduct";
+import EditProduct from "./pages/AdminPages/EditProduct";
 
 createRoot(document.getElementById("root")).render(
 
@@ -38,7 +40,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="forgot-password" element={<ForgotPass />} />
         <Route path="detail/:id" element={<Detail />} />
         <Route path="get-all-product" element={<GetAllProduct />} />
-       
+
       </Route>
     </Routes>
 
@@ -46,7 +48,10 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="admin" element={<AdminTemplate />}>
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="product-management" element={<ProductManagement />} />
+        <Route path="products" element={<ProductManagement />} />
+        <Route path="products/create" element={<CreateProduct />} />
+        <Route path="products/edit/:id" element={<EditProduct />} />
+
       </Route>
 
     </Routes>

@@ -36,7 +36,7 @@ const AdminTemplate = () => {
                                 <NavLink class="nav-link" aria-current="page" to="/admin/dashboard">Dashboard</NavLink>
                             </li>
                             <li class="nav-item">
-                                <NavLink class="nav-link " aria-current="page" to="/admin/product-management">Product Management</NavLink>
+                                <NavLink class="nav-link " aria-current="page" to="/admin/products">Product Management</NavLink>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Link</a>
