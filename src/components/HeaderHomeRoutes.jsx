@@ -45,6 +45,19 @@ const HeaderHomeRoutes = () => {
 
                                 </ul>
                             </li>
+                             <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Demo Redux
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li>
+                                        
+                                        <NavLink className="nav-link" to="/change-number-redux">Change Number</NavLink>
+                                    </li>
+
+
+                                </ul>
+                            </li>
                 
                         </ul>
                         <form className="d-flex" role="search">

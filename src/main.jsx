@@ -20,44 +20,50 @@ import GetAllProduct from "./pages/DemoAPI/GetAllProduct";
 import CreateProduct from "./pages/AdminPages/CreateProduct";
 import EditProduct from "./pages/AdminPages/EditProduct";
 import CreateAndEditProduct from "./pages/AdminPages/CreateAndEditProduct";
+// Import Provider, store: kết nối store, redux với ứng dụng
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import ChangeNumberRedux from "./pages/DemoRedux/ChangeNumberRedux";
 
 createRoot(document.getElementById("root")).render(
 
   <BrowserRouter>
-    {/* Thêm header dùng chung cho tất cả các trang */}
-    {/* <HeaderHomeRoutes /> */}
-    {/*Routes: Nhóm các trang liên quan, dùng chung 1 template */}
-    {/* url?tenThamSo=value; url/:tenThamSo => user thấy: url/giá trị tham số*/}
-    <Routes>
-      <Route path="" element={<HomeTemplate />}>
-        <Route index element={<HomePage />} />
-        <Route path="index" element={<HomePage />} />
-        <Route path="danh-sach-san-pham" element={<DanhSachSanPham />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="about" element={<About />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="forgot-password" element={<ForgotPass />} />
-        <Route path="detail/:id" element={<Detail />} />
-        <Route path="get-all-product" element={<GetAllProduct />} />
+    <Provider store={store}>
 
-      </Route>
-    </Routes>
 
-    {/* admin/dashboard */}
-    <Routes>
-      <Route path="admin" element={<AdminTemplate />}>
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="products" element={<ProductManagement />} />
-        <Route path="products/create" element={<CreateProduct />} />
-        <Route path="products/edit/:id" element={<EditProduct />} />
-        <Route path="product/:id?" element={<CreateAndEditProduct />} />
+      <Routes>
+        <Route path="" element={<HomeTemplate />}>
+          <Route index element={<HomePage />} />
+          <Route path="index" element={<HomePage />} />
+          <Route path="danh-sach-san-pham" element={<DanhSachSanPham />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="about" element={<About />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="forgot-password" element={<ForgotPass />} />
+          <Route path="detail/:id" element={<Detail />} />
+          <Route path="get-all-product" element={<GetAllProduct />} />
+          
+          <Route path="change-number-redux" element={<ChangeNumberRedux />} />
 
-      </Route>
+        </Route>
+      </Routes>
 
-    </Routes>
+      {/* admin/dashboard */}
+      <Routes>
+        <Route path="admin" element={<AdminTemplate />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="products" element={<ProductManagement />} />
+          <Route path="products/create" element={<CreateProduct />} />
+          <Route path="products/edit/:id" element={<EditProduct />} />
+          <Route path="product/:id?" element={<CreateAndEditProduct />} />
 
+        </Route>
+
+      </Routes>
+
+    </Provider>
 
   </BrowserRouter>
 );
