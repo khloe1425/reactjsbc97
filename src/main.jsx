@@ -19,6 +19,7 @@ import Detail from "./pages/Detail";
 import GetAllProduct from "./pages/DemoAPI/GetAllProduct";
 import CreateProduct from "./pages/AdminPages/CreateProduct";
 import EditProduct from "./pages/AdminPages/EditProduct";
+import CreateAndEditProduct from "./pages/AdminPages/CreateAndEditProduct";
 
 createRoot(document.getElementById("root")).render(
 
@@ -51,6 +52,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="products" element={<ProductManagement />} />
         <Route path="products/create" element={<CreateProduct />} />
         <Route path="products/edit/:id" element={<EditProduct />} />
+        <Route path="product/:id?" element={<CreateAndEditProduct />} />
 
       </Route>
 
