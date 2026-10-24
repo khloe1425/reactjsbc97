@@ -38,27 +38,35 @@ const HeaderHomeRoutes = () => {
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        
+
                                         <NavLink className="nav-link" to="/get-all-product">Get All Product</NavLink>
                                     </li>
 
 
                                 </ul>
                             </li>
-                             <li className="nav-item dropdown">
+                            <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Demo Redux
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        
+
                                         <NavLink className="nav-link" to="/change-number-redux">Change Number</NavLink>
                                     </li>
+                                    <li>
 
+                                        <NavLink className="nav-link" to="/bt-chi-tiet-redux">BT Chi Tiết</NavLink>
+                                    </li>
+                                    <li>
 
+                                        <NavLink className="nav-link" to="/bt-gio-hang-redux">BT Giỏ Hàng</NavLink>
+                                    </li>
+
+                                    
                                 </ul>
                             </li>
-                
+
                         </ul>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

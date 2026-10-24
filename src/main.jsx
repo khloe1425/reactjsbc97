@@ -24,6 +24,8 @@ import CreateAndEditProduct from "./pages/AdminPages/CreateAndEditProduct";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import ChangeNumberRedux from "./pages/DemoRedux/ChangeNumberRedux";
+import BTXemChiTietRedux from "./pages/DemoRedux/BTXemChiTietRedux";
+import BTGioHang from "./pages/DemoRedux/BTGioHang";
 
 createRoot(document.getElementById("root")).render(
 
@@ -44,8 +46,10 @@ createRoot(document.getElementById("root")).render(
           <Route path="forgot-password" element={<ForgotPass />} />
           <Route path="detail/:id" element={<Detail />} />
           <Route path="get-all-product" element={<GetAllProduct />} />
-          
+
           <Route path="change-number-redux" element={<ChangeNumberRedux />} />
+          <Route path="bt-chi-tiet-redux" element={<BTXemChiTietRedux />} />
+          <Route path="bt-gio-hang-redux" element={<BTGioHang />} />
 
         </Route>
       </Routes>

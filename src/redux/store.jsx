@@ -1,4 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
+import {numberReducer} from "./reducers/numberReducer.jsx";
+import { phoneDetailReducer } from "./reducers/phoneDetailReducer.jsx";
+import { gioHangReducer } from "./reducers/gioHangReducer.jsx";
 
 /**
  * reducer: hàm trả về state, khi state thay đổi sẽ tự động kiểm tra và render lại component
@@ -7,27 +10,46 @@ import { configureStore } from "@reduxjs/toolkit";
  * B1: thiết lập store (thiết lập 1 lần khi mới cài redux)
  *  B1-1: kết nối store, redux vào ứng dụng
  * B2: tạo state tập trung (reducer)
- * B3: kết nối component với reducer đẻ lấy dữ liệu state xuống component
- *
+ * B3: kết nối component với reducer để lấy dữ liệu state xuống component
+ * B4: Đẩy data cần đổi lên trên reducer (store)
+ * 
+ * 
+ * Nếu store có quá nhiều reducer thì tách nhỏ reducer
  */
+
+
+
+
 export const store = configureStore({
-    reducer:{
+    reducer: {
         //Nơi quản lý state tập trung cho toàn bộ ứng dụng
-        numberReducer: (stateNumber = 10,action) => { 
-            console.log('numberReducer', action)
-
-            if (action.type == 'CHANGE_NUMBER_ACTION'){
-                stateNumber = stateNumber + action.payload
-            }
-
-            //reducer tự kiểm tra giá trị state có đổi không => có đổi thì render lại UI, ngược lại thfi ko render lại
-            // reducer so sánh địa chỉ ô nhớ
-            return stateNumber
-         },
-        stringReducer: (stateString = "abc") =>{
+        numberReducer,
+        stringReducer: (stateString = "abc") => {
 
             return stateString
-        }
-
+        },
+        // phoneDetailReducer: phoneDetailReducer,
+        phoneDetailReducer,
+        gioHangReducer,
     }
 })
+
+
+// object literal: tên thuộc tính/ tên phương thức trùng với tên biến được gán vào thì chỉ cần ghi 1 tên của thuộc tính/ phương thức
+/**
+ * function tinhDTB ={
+ *  console.log("tính diem")
+ * }
+ * 
+ * let sv = {
+ *      tinhDTB:()=> {
+ *    } //gán hàm ẩn danh
+ * }
+ * 
+ * => let sv = {
+ *      tinhDTB: tinhDTB
+ * }
+ * => rút gọn let sv = {
+ *      tinhDTB,
+ * }
+ */
