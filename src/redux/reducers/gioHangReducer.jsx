@@ -49,8 +49,29 @@ const initialState = {
 }
 
 export const gioHangReducer = (state = initialState, action) => {
+    console.log(action)
     switch (action.type) {
+        case "ADD_CART_ACTION": {
+            ////code xử lý hành động thêm sản phẩm giỏ hàng
 
+            //?B1: tạo sản phẩm giỏ hàng. 
+            // // {copy thuộc tính từ sản phẩm gốc, thuộc tính mới thêm vào}
+            let sanPhamGHNew = { ...action.payload, soLuong:1 }
+            
+            //?B2: kiểm tra giỏ hàng và thêm xử lý đối tương sp giỏ hàng theo 2 tình huống
+            let spFind = state.gioHang.find(spGH => spGH.maSP === sanPhamGHNew.maSP)
+            if (spFind){
+                // TH2:  mã SP đã tồn tại trong giỏ hàng => tăng số lượng sản phẩm lên +1
+                spFind.soLuong +=1;
+            }else{
+                //TH1: mã SP chưa tồn tại trong giỏ hàng => thêm 1 hàng mới vào bảng giỏ hàng.
+                state.gioHang.push(sanPhamGHNew)
+            }
+            console.log(state.gioHang)
+
+            return state
+            
+        };break;
 
         default:
             return state
