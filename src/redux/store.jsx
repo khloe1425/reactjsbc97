@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {numberReducer} from "./reducers/numberReducer.jsx";
 import { phoneDetailReducer } from "./reducers/phoneDetailReducer.jsx";
-import { gioHangReducer } from "./reducers/gioHangReducer.jsx";
+// import { gioHangReducer } from "./reducers/gioHangReducer.jsx";
+import  btGioHangReducer  from "./reducers/btGioHangReducer.jsx";
 
 /**
  * reducer: hàm trả về state, khi state thay đổi sẽ tự động kiểm tra và render lại component
@@ -19,7 +20,6 @@ import { gioHangReducer } from "./reducers/gioHangReducer.jsx";
 
 
 
-
 export const store = configureStore({
     reducer: {
         //Nơi quản lý state tập trung cho toàn bộ ứng dụng
@@ -30,7 +30,9 @@ export const store = configureStore({
         },
         // phoneDetailReducer: phoneDetailReducer,
         phoneDetailReducer,
-        gioHangReducer,
+        // gioHangReducer,
+        btGioHangReducer: btGioHangReducer
+        
     }
 })
 

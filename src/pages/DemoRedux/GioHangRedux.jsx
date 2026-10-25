@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 
 const GioHangRedux = () => {
 
-  const { gioHang } = useSelector(rootReducer => rootReducer.gioHangReducer)
+  // const { gioHang } = useSelector(rootReducer => rootReducer.gioHangReducer)
+  const { gioHang } = useSelector(rootReducer => rootReducer.btGioHangReducer)
 
 
   const renderGioHang = () => {

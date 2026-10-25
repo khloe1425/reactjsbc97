@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 
 const BTGioHang = () => {
 
-    const { mangSanPham } = useSelector(rootReducer => rootReducer.gioHangReducer)
+    // const { mangSanPham } = useSelector(rootReducer => rootReducer.gioHangReducer)
+    const { mangSanPham } = useSelector(rootReducer => rootReducer.btGioHangReducer)
 
 
     const renderSanPham = () => {

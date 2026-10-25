@@ -68,13 +68,20 @@ export const gioHangReducer = (state = initialState, action) => {
                 state.gioHang.push(sanPhamGHNew)
             }
             console.log(state.gioHang)
+           
+            //? tính bất biến (state mutation): reducer kiểm tra state theo địa chỉ ô nhớ => không tự render lại UI
+            //state.gioHang : mảng đối tượng
+            // copy tạo mảng mới => đổi địa chỉ ô nhớ
+            // {...copy thuộc tính cũ, gioHang: gán giá trị mới cho giỏ hàng}
+            //Cách 1: copy thủ công
+            return { ...state, gioHang: [...state.gioHang]}
 
-            return state
-            
         };break;
 
         default:
             return state
     }
 }
+
+
 
