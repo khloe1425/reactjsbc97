@@ -8,6 +8,7 @@ const ForgotPass = () => {
   return (
     <div>ForgotPass
       <p>Email: {location.state?.email}</p>
+     
     </div>
     
   )

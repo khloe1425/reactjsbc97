@@ -63,7 +63,28 @@ const HeaderHomeRoutes = () => {
                                         <NavLink className="nav-link" to="/bt-gio-hang-redux">BT Giỏ Hàng</NavLink>
                                     </li>
 
-                                    
+
+                                </ul>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Demo Hook tối ưu
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li>
+
+                                        <NavLink className="nav-link" to="/hook-toi-uu">Hook tối ưu</NavLink>
+                                    </li>
+                                    <li>
+
+                                        <NavLink className="nav-link" to="/custom-hook">Custom Hook</NavLink>
+                                    </li>
+                                    <li>
+
+                                        <NavLink className="nav-link" to="/hoc-demo">HOC Demo</NavLink>
+                                    </li>
+
+
                                 </ul>
                             </li>
 
