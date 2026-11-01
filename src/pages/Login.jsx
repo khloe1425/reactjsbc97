@@ -26,7 +26,11 @@ const Login = () => {
       if (values.email === "test@gmail.com" && values.password === "Test@123") {
         console.log("Login thành công")
         navigate("/profile")
-
+        
+        //mở rộng
+        // gọi api login -> value gọi api /login
+        // ->const {accessToken} = result.data.content
+        //-> lưu accessToken vào localStorage
 
       } else {
         console.log("Login thất bại")

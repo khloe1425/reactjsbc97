@@ -29,13 +29,14 @@ import BTGioHang from "./pages/DemoRedux/BTGioHang";
 import HookToiUu from "./pages/HookToiUu/HookToiUu";
 import DemoCustomHook from "./pages/HookToiUu/DemoCustomHook";
 import HOCDemo from "./pages/HOCDemo/HOCDemo";
+import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
+import { createBrowserHistory } from "history";
+
+export const history = createBrowserHistory();
 
 createRoot(document.getElementById("root")).render(
-
-  <BrowserRouter>
+  <HistoryRouter history={history}>
     <Provider store={store}>
-
-
       <Routes>
         <Route path="" element={<HomeTemplate />}>
           <Route index element={<HomePage />} />
@@ -57,7 +58,6 @@ createRoot(document.getElementById("root")).render(
           <Route path="hook-toi-uu" element={<HookToiUu />} />
           <Route path="custom-hook" element={<DemoCustomHook />} />
           <Route path="hoc-demo" element={<HOCDemo />} />
-
         </Route>
       </Routes>
 
@@ -69,14 +69,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="products/create" element={<CreateProduct />} />
           <Route path="products/edit/:id" element={<EditProduct />} />
           <Route path="product/:id?" element={<CreateAndEditProduct />} />
-
         </Route>
-
       </Routes>
-
     </Provider>
-
-  </BrowserRouter>
+  </HistoryRouter>,
 );
-
-
