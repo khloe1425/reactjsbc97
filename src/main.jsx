@@ -31,6 +31,8 @@ import DemoCustomHook from "./pages/HookToiUu/DemoCustomHook";
 import HOCDemo from "./pages/HOCDemo/HOCDemo";
 import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import ProductMiddleware from "./pages/ReduxMiddleware/ProductMiddleware";
+import DetailMiddleware from "./pages/ReduxMiddleware/DetailMiddleware";
 
 export const history = createBrowserHistory();
 
@@ -58,6 +60,9 @@ createRoot(document.getElementById("root")).render(
           <Route path="hook-toi-uu" element={<HookToiUu />} />
           <Route path="custom-hook" element={<DemoCustomHook />} />
           <Route path="hoc-demo" element={<HOCDemo />} />
+
+          <Route path="product-middleware" element={<ProductMiddleware />} />
+          <Route path="detail-middleware/:id" element={<DetailMiddleware />} />
         </Route>
       </Routes>
 

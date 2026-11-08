@@ -2,6 +2,9 @@ import axios from "axios";
 import { BASE_URL, TOKEN_CYBERSOFT } from "../constants/appConstants";
 import { history } from "../main";
 
+
+// Axios Middleware
+
 //http.get
 const http = axios.create({
   baseURL: BASE_URL,
@@ -101,6 +104,7 @@ http.interceptors.response.use(
 
         case 404:
           console.error("404 - không tìm thấy");
+          //chuyển về trang 404
           break;
 
         case 429:
@@ -109,6 +113,7 @@ http.interceptors.response.use(
 
         case 500:
           console.error("500 - lỗi server");
+          //chuyển về trang bảo trì
           break;
         default:
           console.error(`Lỗi không xác định: ${status}`);

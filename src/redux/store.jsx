@@ -3,6 +3,7 @@ import {numberReducer} from "./reducers/numberReducer.jsx";
 import { phoneDetailReducer } from "./reducers/phoneDetailReducer.jsx";
 // import { gioHangReducer } from "./reducers/gioHangReducer.jsx";
 import  btGioHangReducer  from "./reducers/btGioHangReducer.jsx";
+import productReducer from "./reducers/productReducer.jsx";
 
 /**
  * reducer: hàm trả về state, khi state thay đổi sẽ tự động kiểm tra và render lại component
@@ -31,7 +32,8 @@ export const store = configureStore({
         // phoneDetailReducer: phoneDetailReducer,
         phoneDetailReducer,
         // gioHangReducer,
-        btGioHangReducer: btGioHangReducer
+        btGioHangReducer,
+        productReducer,
         
     }
 })

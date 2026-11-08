@@ -62,7 +62,10 @@ const HeaderHomeRoutes = () => {
 
                                         <NavLink className="nav-link" to="/bt-gio-hang-redux">BT Giỏ Hàng</NavLink>
                                     </li>
+                                    <li>
 
+                                        <NavLink className="nav-link" to="/product-middleware">Danh sách sản phẩm middleware </NavLink>
+                                    </li>
 
                                 </ul>
                             </li>
