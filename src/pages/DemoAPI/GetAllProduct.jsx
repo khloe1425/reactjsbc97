@@ -69,7 +69,7 @@ const GetAllProduct = () => {
 
     //cách 2
     try {
-      const result = await http.get("/api/products");
+      const result = await http.get("/api/Product");
       console.log("danh sách sản phẩm", result.data.content);
       setArrProduct(result.data.content);
     } catch (error) {
